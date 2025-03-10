@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "FluentAnimation (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "FluentAnimation (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
