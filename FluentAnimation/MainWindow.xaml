@@ -12,83 +12,26 @@
     mc:Ignorable="d"
     Title="FluentAnimation">
 
-    <Grid Margin="0"  Background="{ThemeResource SolidBackgroundFillColorBaseBrush}">
+    <Grid Margin="0"  Background="{ThemeResource SolidBackgroundFillColorBaseBrush}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
-            <RowDefinition Height="32"/>
+            <RowDefinition Height="48"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ScrollViewer 
-            Grid.Row="1">
-            <GridView
-                x:Name="InfoGridView"
-                SelectionMode="Single"
-                SelectionChanged="InfoGridView_SelectionChanged"
-                HorizontalAlignment="Center">
-                <GridView.ItemContainerStyle>
-                    <Style TargetType="GridViewItem" BasedOn="{StaticResource DefaultGridViewItemStyle}">
-                        <Setter Property="Margin" Value="7"/>
-                    </Style>
-                </GridView.ItemContainerStyle>
-                <GridView.ItemTemplate>
-                    <DataTemplate x:DataType="local:InfoItemData">
-                        <controls:InfoItem
-                            FullName="{x:Bind Name}"
-                            Address="{x:Bind Address}"
-                            Job="{x:Bind Job}"/>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-            </GridView>
-        </ScrollViewer>
-        <Grid x:Name="OverlayPopup" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Visibility="Collapsed" Grid.RowSpan="2">
-            <Grid.Background>
-                <AcrylicBrush TintOpacity="0.4" TintColor="#FF000000" FallbackColor="#FF202020"/>
-            </Grid.Background>
-            
-            <animations:Implicit.ShowAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.15" From="0" To="1.0" EasingType="Quintic" EasingMode="EaseInOut"/>
-            </animations:Implicit.ShowAnimations>
-            <animations:Implicit.HideAnimations>
-                <animations:OpacityAnimation Duration="0:0:0.15" To="0.0" EasingType="Quintic" EasingMode="EaseInOut"/>
-            </animations:Implicit.HideAnimations>
-
-            <Grid x:Name="DestinationElement" 
-                  HorizontalAlignment="Center" 
-                  VerticalAlignment="Center" 
-                  Width="370" Height="295">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="55" />
-                    <RowDefinition Height="240" />
-                </Grid.RowDefinitions>
-                <Grid HorizontalAlignment="Stretch"
-                      VerticalAlignment="Stretch"
-                      Grid.Row="1" 
-                      Height="240" 
-                      CornerRadius="8"
-                      Background="{ThemeResource SolidBackgroundFillColorBaseBrush}"
-                      BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
-                      BorderThickness="1">
-                    <TextBlock x:Name="SelectedNameTextBlock" Style="{ThemeResource TitleTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,64,0,0" />
-                    <TextBlock x:Name="SelectedAddressTextBlock" Style="{ThemeResource CaptionTextBlockStyle}" Opacity="0.5" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    <TextBlock x:Name="SelectedJobTextBlock" Style="{ThemeResource BodyStrongTextBlockStyle}" Margin="0,48,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                    <Button Style="{ThemeResource AccentButtonStyle}" x:Name="CloseBtn" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Content="Close" ToolTipService.ToolTip="Close" AutomationProperties.Name="Close" Click="CloseBtn_Click" Margin="8"/>
-                </Grid>
-
-                <Rectangle x:Name="Image" Grid.RowSpan="2" Width="110" Height="110" HorizontalAlignment="Center" VerticalAlignment="Top" RadiusX="55" RadiusY="55" Visibility="Visible">
-                    <Rectangle.Fill>
-                        <!--<ImageBrush x:Name="SelectedImage" ImageSource="https://picsum.photos/200/300" />-->
-                        <LinearGradientBrush
-                            StartPoint="0.5, 0"
-                            EndPoint="0.5, 1">
-                            <GradientStop Color="#F2F2F2" Offset="0" />
-                            <GradientStop Color="#B4B4B4" Offset="0.55617976" />
-                            <GradientStop Color="#F2F2F2" Offset="1" />
-                        </LinearGradientBrush>
-                    </Rectangle.Fill>
-                </Rectangle>
-            </Grid>
+        <Grid x:Name="TitleBarElement" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Background="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <TextBlock Margin="16,0,0,0" Text="Fluent Animation" VerticalAlignment="Center"/>
+                <Rectangle Width="2" RadiusX="1" RadiusY="1" Margin="16,0,8,0" Height="32" VerticalAlignment="center" Fill="{ThemeResource DividerStrokeColorDefaultBrush}"/>
+                <SelectorBar x:Name="PageSelector" SelectionChanged="PageSelector_SelectionChanged">
+                    <SelectorBarItem x:Name="SelectorBarItemPage1" Text="FirstPage" IsSelected="True" />
+                    <SelectorBarItem x:Name="SelectorBarItemPage2" Text="Advanced Animation" />
+                </SelectorBar>
+            </StackPanel>
+            <Border x:Name="TitleBarGrab" Grid.Column="1"/>
         </Grid>
-        <Grid x:Name="TitleBarElement" HorizontalAlignment="Stretch" VerticalAlignment="Center" Padding="12, 8">
-            <TextBlock Text="Fluent Animation"/>
-        </Grid>
+        <Frame x:Name="MainFrame" Grid.Row="1" />
     </Grid>
 </Window>

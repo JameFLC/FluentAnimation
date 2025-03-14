@@ -272,6 +272,25 @@
                     <Button.RenderTransform>
                         <CompositeTransform TranslateY="4"/>
                     </Button.RenderTransform>
+                    <Button.Flyout>
+                        <Flyout x:Name="BottomButtonFlyout">
+                            <StackPanel Margin="-8" Spacing="8">
+                                <Rectangle Width="270" Height="140" RadiusX="8" RadiusY="8">
+                                    <Rectangle.Fill>
+                                        <ImageBrush ImageSource="https://picsum.photos/200/300"/>
+                                    </Rectangle.Fill>
+                                    <Rectangle.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" CenterX="32" CenterY="32"/>
+                                            <CompositeTransform TranslateX="0" />
+                                        </TransformGroup>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                                <Button Content="Contact" HorizontalAlignment="Stretch" Style="{ThemeResource AccentButtonStyle}" Click="ContactButton_Click"/>
+                            </StackPanel>
+                        </Flyout>
+                    </Button.Flyout>
+
                     <FontIcon Glyph="&#xE712;" FontSize="12" />
                 </Button>
             </StackPanel>

@@ -14,6 +14,9 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Controls\InfoItem.xaml" />
+    <None Remove="Pages\AdvancedAnimation.xaml" />
+    <None Remove="Pages\FirstPage.xaml" />
+    <None Remove="Pages\TriangleSliderPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -47,7 +50,27 @@
     <PackageReference Include="Microsoft.Xaml.Behaviors.WinUI.Managed" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Pages\TriangleSliderPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\TrangleSlider.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\AdvancedAnimation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Controls\InfoItem.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\FirstPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

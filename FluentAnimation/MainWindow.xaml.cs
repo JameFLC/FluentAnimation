@@ -17,6 +17,8 @@ using System.Numerics;
 using WinRT;
 using Microsoft.UI.Xaml.Media.Animation;
 using System.Threading.Tasks;
+using FluentAnimation.Models;
+using FluentAnimation.Pages;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -28,88 +30,44 @@ namespace FluentAnimation
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        private int _currentSelectedPageIndex = 0;
+
         public MainWindow()
         {
             this.InitializeComponent();
 
             ExtendsContentIntoTitleBar = true;
 
-            SetTitleBar(TitleBarElement);
+            SetTitleBar(TitleBarGrab);
+        }
 
-            var GridElements = new List<InfoItemData>
+        private void PageSelector_SelectionChanged(SelectorBar sender, SelectorBarSelectionChangedEventArgs args)
+        {
+            SelectorBarItem selectedItem = sender.SelectedItem;
+            int newlySelectedPageIndex = sender.Items.IndexOf(selectedItem);
+            Type? pageType;
+
+            switch (newlySelectedPageIndex)
             {
-                new("Della Case", "128 Xaml Street", "Marketing"),
-                new("John Garf", "64 Inventory Street", "Invetory"),
-                new("Diana Smiley", "42 Search Street", "Reasearch"),
-                new("Calis Decalis", "28 Ace Street", "Chemicals"),
-                new("San Goku", "645 Fight Street", "Buisiness"),
-                new("Harold Adams", "13 C# Street", "Developement"),
-                new("Josh Skoter", "1 Relation Street", "Legal"),
-                new("Christel Bloom", "34 John Mark Street", "Light"),
-                new("Ema Dukerk", "7 Ice Street", "Navigation"),
-                new("Della Case", "128 Xaml Street", "Marketing"),
-                new("John Garf", "64 Inventory Street", "Invetory"),
-                new("Diana Smiley", "42 Search Street", "Reasearch"),
-                new("Calis Decalis", "28 Ace Street", "Chemicals"),
-                new("San Goku", "645 Fight Street", "Buisiness"),
-                new("Harold Adams", "13 C# Street", "Developement"),
-                new("Josh Skoter", "1 Relation Street", "Legal"),
-                new("Christel Bloom", "34 John Mark Street", "Light"),
-                new("Ema Dukerk", "7 Ice Street", "Navigation"),
-                new("Della Case", "128 Xaml Street", "Marketing"),
-                new("John Garf", "64 Inventory Street", "Invetory"),
-                new("Diana Smiley", "42 Search Street", "Reasearch"),
-                new("Calis Decalis", "28 Ace Street", "Chemicals"),
-                new("San Goku", "645 Fight Street", "Buisiness"),
-                new("Harold Adams", "13 C# Street", "Developement"),
-                new("Josh Skoter", "1 Relation Street", "Legal"),
-                new("Christel Bloom", "34 John Mark Street", "Light"),
-                new("Ema Dukerk", "7 Ice Street", "Navigation"),
-                new("Christel Bloom", "34 John Mark Street", "Light"),
-                new("Ema Dukerk", "7 Ice Street", "Navigation"),
-                new("Della Case", "128 Xaml Street", "Marketing"),
-            };
+                case 0:
+                    pageType = typeof(FirstPage);
+                    break;
+                case 1:
+                    pageType = typeof(AdvancedAnimation);
+                    break;
+                default:
+                    pageType = typeof(FirstPage);
+                    break;
+            }
 
-            InfoGridView.ItemsSource = GridElements;
-        }
+            if (pageType is null) return;
 
-        private InfoItemData? _selectedData;
+            var slideNavigationTransitionEffect = newlySelectedPageIndex - _currentSelectedPageIndex > 0 ? SlideNavigationTransitionEffect.FromRight : SlideNavigationTransitionEffect.FromLeft;
 
-        private void InfoGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            GridViewItem? selectedItem = InfoGridView.ContainerFromItem(InfoGridView.SelectedItem) as GridViewItem;
+            MainFrame.Navigate(pageType, null, new SlideNavigationTransitionInfo() { Effect = slideNavigationTransitionEffect });
 
-            if (selectedItem is null) return;
+            _currentSelectedPageIndex = newlySelectedPageIndex;
 
-            _selectedData = selectedItem.Content as InfoItemData;
-
-            if (_selectedData is null) return;
-
-            SelectedNameTextBlock.Text = _selectedData.Name;
-            SelectedAddressTextBlock.Text = _selectedData.Address;
-            SelectedJobTextBlock.Text = _selectedData.Job;
-            
-            OverlayPopup.Visibility = Visibility.Visible;
-
-            InfoGridView.SelectedItem = null;
-
-            
-            ConnectedAnimation connectedAnimation = InfoGridView.PrepareConnectedAnimation("forwardAnimation", _selectedData, "MainBorder");
-
-            connectedAnimation.Configuration = new DirectConnectedAnimationConfiguration();
-            connectedAnimation.TryStart(DestinationElement);
-        }
-
-        private async void CloseBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-            ConnectedAnimation connectedAnimation = ConnectedAnimationService.GetForCurrentView().PrepareToAnimate("backwardsAnimation", DestinationElement);
-
-            connectedAnimation.Configuration = new DirectConnectedAnimationConfiguration();
-            
-            await InfoGridView.TryStartConnectedAnimationAsync(connectedAnimation, _selectedData, "MainBorder");
-            
-            OverlayPopup.Visibility = Visibility.Collapsed;
         }
     }
 }

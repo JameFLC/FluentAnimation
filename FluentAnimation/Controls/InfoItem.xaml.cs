@@ -75,5 +75,10 @@ namespace FluentAnimation.Controls
         {
             VisualStateManager.GoToState(this, "Normal", true);
         }
+
+        private void ContactButton_Click(object sender, RoutedEventArgs e)
+        {
+            BottomButtonFlyout.Hide();
+        }
     }
 }

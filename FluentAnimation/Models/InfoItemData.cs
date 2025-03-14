@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FluentAnimation
+namespace FluentAnimation.Models
 {
     class InfoItemData(string name, string address, string job)
     {
