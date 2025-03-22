@@ -143,7 +143,42 @@
                                 </Setter>
                             </Style>
                         </Grid.Resources>
-                        
+                        <Border>
+                            <Canvas x:Name="ContainerCanvas" Background="Transparent" >
+                                <Polygon x:Name="TrianglePath" 
+                                      StrokeThickness="4"
+                                      StrokeLineJoin="Round"
+                                      Stroke="{TemplateBinding Background}"
+                                      Stretch="None"
+                                      Points="50,10 10,90 90,90"/>
+                                <Border x:Name="InvisibleDrag" Height="64" Width="64" Background="Transparent"/>
+
+
+                                <Grid x:Name="ToolTip"
+                                      Width="120"
+                                      Background="{ThemeResource ToolTipBackground}"
+                                      BorderBrush="{ThemeResource ToolTipBorderBrush}"
+                                      BorderThickness="{ThemeResource ToolTipBorderThemeThickness}"
+                                      CornerRadius="{ThemeResource ControlCornerRadius}"
+                                      Opacity="0"
+                                      IsHitTestVisible="False"
+                                      Visibility="Visible">
+                                    <Grid.OpacityTransition>
+                                        <ScalarTransition />
+                                    </Grid.OpacityTransition>
+                                    <TextBlock x:Name="ToolTipText"
+                                               HorizontalAlignment="Center"
+                                               Margin="8,7,8,5"
+                                               Foreground="{ThemeResource ToolTipForeground}" 
+                                               Text="0.48 | 0.52 | 0.00" />
+                                </Grid>
+
+                                <Thumb x:Name="Thumb"
+                                       Style="{StaticResource SliderThumbStyle}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"/>
+                            </Canvas>
+                        </Border>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

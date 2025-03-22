@@ -24,10 +24,13 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Horizontal">
                 <TextBlock Margin="16,0,0,0" Text="Fluent Animation" VerticalAlignment="Center"/>
-                <Rectangle Width="2" RadiusX="1" RadiusY="1" Margin="16,0,8,0" Height="32" VerticalAlignment="center" Fill="{ThemeResource DividerStrokeColorDefaultBrush}"/>
+                <Rectangle Width="2" RadiusX="1" RadiusY="1" Margin="16,0,4,0" Height="32" VerticalAlignment="center" Fill="{ThemeResource DividerStrokeColorDefaultBrush}"/>
                 <SelectorBar x:Name="PageSelector" SelectionChanged="PageSelector_SelectionChanged">
                     <SelectorBarItem x:Name="SelectorBarItemPage1" Text="FirstPage" IsSelected="True" />
                     <SelectorBarItem x:Name="SelectorBarItemPage2" Text="Advanced Animation" />
+                    <SelectorBarItem x:Name="SelectorBarItemPage3" Text="TriangleSlider" />
+                    <SelectorBarItem x:Name="SelectorBarItemPage4" Text="Tunes Transition" /> <!-- Transitions d'un aspect à l'autre avec un changement de couleur de background comme dans ITunes-->
+                    <!--<SelectorBarItem x:Name="SelectorBarItemPage3" Text="Apple Inteligence" />--> <!-- Glow interne de la window commme le fait Apple Inteligence sur les rebors de l'écran dans ios 18-->
                 </SelectorBar>
             </StackPanel>
             <Border x:Name="TitleBarGrab" Grid.Column="1"/>

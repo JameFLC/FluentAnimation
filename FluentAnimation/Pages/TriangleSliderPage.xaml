@@ -7,10 +7,54 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:FluentAnimation.Controls"
+    xmlns:f="using:Windows.Globalization.NumberFormatting"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid >
-        <controls:TriangleSlider/>
-    </Grid>
+    <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="32" Margin="0,16,0,0">
+            <!--<Slider Minimum="0" Maximum="100"/>-->
+            <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="Big Triangle Slider"/>
+            <controls:TriangleSlider x:Name="BigTriangleSlider" Height="256" Width="256"/>
+            <Grid ColumnSpacing="8" Width="400">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <NumberBox Grid.Column="0" Header="First" Value="{Binding ElementName=BigTriangleSlider, Path=First, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+                <NumberBox Grid.Column="1" Header="Second" Value="{Binding ElementName=BigTriangleSlider, Path=Second, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+                <NumberBox Grid.Column="2" Header="Third" Value="{Binding ElementName=BigTriangleSlider, Path=Third, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+            </Grid>
+
+            <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="Medium Triangle Slider"/>
+            <Grid ColumnSpacing="128">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <controls:TriangleSlider x:Name="MediumTriangleSlider" Height="128" Width="128"/>
+                <StackPanel Spacing="1" Grid.Column="1" Width="120">
+                    <NumberBox Grid.Column="0" Header="First" Value="{Binding ElementName=MediumTriangleSlider, Path=First, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+                    <NumberBox Grid.Column="1" Header="Second" Value="{Binding ElementName=MediumTriangleSlider, Path=Second, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+                    <NumberBox Grid.Column="2" Header="Third" Value="{Binding ElementName=MediumTriangleSlider, Path=Third, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+                </StackPanel>
+            </Grid>
+
+            <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="Small Triangle Slider"/>
+            <Grid ColumnSpacing="128">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <controls:TriangleSlider x:Name="SmallTriangleSlider" Height="64" Width="64"/>
+                <StackPanel Spacing="1" Grid.Column="1" Width="120">
+                    <NumberBox Grid.Column="0" Header="First" Value="{Binding ElementName=SmallTriangleSlider, Path=First, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+                    <NumberBox Grid.Column="1" Header="Second" Value="{Binding ElementName=SmallTriangleSlider, Path=Second, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+                    <NumberBox Grid.Column="2" Header="Third" Value="{Binding ElementName=SmallTriangleSlider, Path=Third, Mode=TwoWay}" HorizontalAlignment="Stretch"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+
 </Page>

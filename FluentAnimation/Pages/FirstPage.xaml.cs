@@ -21,36 +21,36 @@ namespace FluentAnimation.Pages
 
             var GridElements = new List<InfoItemData>
             {
-                new("Della Case", "128 Xaml Street", "Marketing"),
-                new("John Garf", "64 Inventory Street", "Invetory"),
-                new("Diana Smiley", "42 Search Street", "Reasearch"),
-                new("Calis Decalis", "28 Ace Street", "Chemicals"),
-                new("San Goku", "645 Fight Street", "Buisiness"),
-                new("Harold Adams", "13 C# Street", "Developement"),
-                new("Josh Skoter", "1 Relation Street", "Legal"),
-                new("Christel Bloom", "34 John Mark Street", "Light"),
-                new("Ema Dukerk", "7 Ice Street", "Navigation"),
-                new("Della Case", "128 Xaml Street", "Marketing"),
-                new("John Garf", "64 Inventory Street", "Invetory"),
-                new("Diana Smiley", "42 Search Street", "Reasearch"),
-                new("Calis Decalis", "28 Ace Street", "Chemicals"),
-                new("San Goku", "645 Fight Street", "Buisiness"),
-                new("Harold Adams", "13 C# Street", "Developement"),
-                new("Josh Skoter", "1 Relation Street", "Legal"),
-                new("Christel Bloom", "34 John Mark Street", "Light"),
-                new("Ema Dukerk", "7 Ice Street", "Navigation"),
-                new("Della Case", "128 Xaml Street", "Marketing"),
-                new("John Garf", "64 Inventory Street", "Invetory"),
-                new("Diana Smiley", "42 Search Street", "Reasearch"),
-                new("Calis Decalis", "28 Ace Street", "Chemicals"),
-                new("San Goku", "645 Fight Street", "Buisiness"),
-                new("Harold Adams", "13 C# Street", "Developement"),
-                new("Josh Skoter", "1 Relation Street", "Legal"),
-                new("Christel Bloom", "34 John Mark Street", "Light"),
-                new("Ema Dukerk", "7 Ice Street", "Navigation"),
-                new("Christel Bloom", "34 John Mark Street", "Light"),
-                new("Ema Dukerk", "7 Ice Street", "Navigation"),
-                new("Della Case", "128 Xaml Street", "Marketing"),
+                new("Della Case", "128 Xaml Street", "Marketing", 1+00),
+                new("John Garf", "64 Inventory Street", "Invetory", 2+00),
+                new("Diana Smiley", "42 Search Street", "Reasearch", 3+00),
+                new("Calis Decalis", "28 Ace Street", "Chemicals", 4+100),
+                new("San Goku", "645 Fight Street", "Buisiness", 5+00),
+                new("Harold Adams", "13 C# Street", "Developement", 6+00),
+                new("Josh Skoter", "1 Relation Street", "Legal", 7+00),
+                new("Christel Bloom", "34 John Mark Street", "Light", 8+00),
+                new("Ema Dukerk", "7 Ice Street", "Navigation", 9+100),
+                new("Della Case", "128 Xaml Street", "Marketing", 10+00),
+                new("John Garf", "64 Inventory Street", "Invetory", 11+00),
+                new("Diana Smiley", "42 Search Street", "Reasearch", 12+00),
+                new("Calis Decalis", "28 Ace Street", "Chemicals", 13+00),
+                new("San Goku", "645 Fight Street", "Buisiness", 14+00),
+                new("Harold Adams", "13 C# Street", "Developement", 15+00),
+                new("Josh Skoter", "1 Relation Street", "Legal", 16+100),
+                new("Christel Bloom", "34 John Mark Street", "Light", 17+00),
+                new("Ema Dukerk", "7 Ice Street", "Navigation", 18+00),
+                new("Della Case", "128 Xaml Street", "Marketing", 19+00),
+                new("John Garf", "64 Inventory Street", "Invetory", 20+100),
+                new("Diana Smiley", "42 Search Street", "Reasearch", 21+00),
+                new("Calis Decalis", "28 Ace Street", "Chemicals", 22+00),
+                new("San Goku", "645 Fight Street", "Buisiness", 23+00),
+                new("Harold Adams", "13 C# Street", "Developement", 24+100),
+                new("Josh Skoter", "1 Relation Street", "Legal", 25+00),
+                new("Christel Bloom", "34 John Mark Street", "Light", 26+00),
+                new("Ema Dukerk", "7 Ice Street", "Navigation", 27+00),
+                new("Christel Bloom", "34 John Mark Street", "Light", 28+100),
+                new("Ema Dukerk", "7 Ice Street", "Navigation", 29+00),
+                new("Della Case", "128 Xaml Street", "Marketing", 30+00),
             };
 
             InfoGridView.ItemsSource = GridElements;
@@ -72,6 +72,8 @@ namespace FluentAnimation.Pages
             SelectedNameTextBlock.Text = _selectedData.Name;
             SelectedAddressTextBlock.Text = _selectedData.Address;
             SelectedJobTextBlock.Text = _selectedData.Job;
+            SelectedImage.ImageSource = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(
+                    new Uri($"https://picsum.photos/id/{_selectedData.PictureId}/200/300"));
 
             OverlayPopup.Visibility = Visibility.Visible;
 

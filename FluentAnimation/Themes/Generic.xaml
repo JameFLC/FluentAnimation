@@ -1,7 +1,8 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:FluentAnimation">
+    xmlns:local="using:FluentAnimation"
+    xmlns:controls="using:FluentAnimation.Controls">
 
     <!--<Style TargetType="controls:TriangleSlider" xmlns:controls="using:FluentAnimation.Controls">
         <Setter Property="Template">
@@ -16,4 +17,7 @@
             </Setter.Value>
         </Setter>
     </Style>-->
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/Controls/TriangleSlider/TrangleSlider.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

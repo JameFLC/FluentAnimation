@@ -223,7 +223,7 @@
 
             <Rectangle x:Name="Image" Grid.Column="0" Height="64" Width="64" RadiusX="32" RadiusY="32" Margin="8" VerticalAlignment="Center">
                 <Rectangle.Fill>
-                    <ImageBrush ImageSource="https://picsum.photos/200/300"/>
+                    <ImageBrush x:Name="ItemImageBrush" Stretch="UniformToFill"/>
                 </Rectangle.Fill>
                 <Rectangle.RenderTransform>
                     <TransformGroup>
@@ -277,7 +277,7 @@
                             <StackPanel Margin="-8" Spacing="8">
                                 <Rectangle Width="270" Height="140" RadiusX="8" RadiusY="8">
                                     <Rectangle.Fill>
-                                        <ImageBrush ImageSource="https://picsum.photos/200/300"/>
+                                        <ImageBrush x:Name="TooltipImage" Stretch="UniformToFill"/>
                                     </Rectangle.Fill>
                                     <Rectangle.RenderTransform>
                                         <TransformGroup>

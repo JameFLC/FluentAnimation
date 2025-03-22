@@ -28,9 +28,10 @@
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="models:InfoItemData">
                         <controls:InfoItem
-                    FullName="{x:Bind Name}"
-                    Address="{x:Bind Address}"
-                    Job="{x:Bind Job}"/>
+                            FullName="{x:Bind Name}"
+                            Address="{x:Bind Address}"
+                            Job="{x:Bind Job}"
+                            PictureId="{x:Bind PictureId}"/>
                     </DataTemplate>
                 </GridView.ItemTemplate>
             </GridView>
@@ -70,14 +71,7 @@
 
                 <Rectangle x:Name="Image" Grid.RowSpan="2" Width="110" Height="110" HorizontalAlignment="Center" VerticalAlignment="Top" RadiusX="55" RadiusY="55" Visibility="Visible">
                     <Rectangle.Fill>
-                        <!--<ImageBrush x:Name="SelectedImage" ImageSource="https://picsum.photos/200/300" />-->
-                        <LinearGradientBrush
-                    StartPoint="0.5, 0"
-                    EndPoint="0.5, 1">
-                            <GradientStop Color="#F2F2F2" Offset="0" />
-                            <GradientStop Color="#B4B4B4" Offset="0.55617976" />
-                            <GradientStop Color="#F2F2F2" Offset="1" />
-                        </LinearGradientBrush>
+                        <ImageBrush x:Name="SelectedImage" Stretch="UniformToFill"/>
                     </Rectangle.Fill>
                 </Rectangle>
             </Grid>

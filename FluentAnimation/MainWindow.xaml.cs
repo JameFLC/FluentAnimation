@@ -55,6 +55,9 @@ namespace FluentAnimation
                 case 1:
                     pageType = typeof(AdvancedAnimation);
                     break;
+                case 2:
+                    pageType = typeof(TriangleSliderPage);
+                    break;
                 default:
                     pageType = typeof(FirstPage);
                     break;

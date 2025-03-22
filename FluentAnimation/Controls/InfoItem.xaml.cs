@@ -22,6 +22,7 @@ namespace FluentAnimation.Controls
     public sealed partial class InfoItem : UserControl
     {
         #region DependencyProperties
+
         public string FullName
         {
             get { return (string)GetValue(FullNameProperty); }
@@ -58,6 +59,18 @@ namespace FluentAnimation.Controls
                 typeof(InfoItem),
                 new PropertyMetadata(null));
 
+        public int PictureId
+        {
+            get { return (int)GetValue(PictureIdProperty); }
+            set { SetValue(PictureIdProperty, value); }
+        }
+        public static readonly DependencyProperty PictureIdProperty =
+            DependencyProperty.Register(
+        "PictureId",
+                typeof(int),
+                typeof(InfoItem),
+                new PropertyMetadata(0, OnPhotoIdChanged));
+
         #endregion
         public InfoItem()
         {
@@ -79,6 +92,26 @@ namespace FluentAnimation.Controls
         private void ContactButton_Click(object sender, RoutedEventArgs e)
         {
             BottomButtonFlyout.Hide();
+        }
+
+        private static void OnPhotoIdChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is InfoItem control)
+            {
+                control.UpdateImageSource();
+            }
+        }
+
+        private void UpdateImageSource()
+        {
+            if (ItemImageBrush != null)
+            {
+                Microsoft.UI.Xaml.Media.Imaging.BitmapImage bitmapImage = new(
+                    new Uri($"https://picsum.photos/id/{PictureId}/200/300"));
+
+                ItemImageBrush.ImageSource = bitmapImage;
+                TooltipImage.ImageSource = bitmapImage;
+            }
         }
     }
 }
