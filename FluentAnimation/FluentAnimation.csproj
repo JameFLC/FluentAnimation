@@ -17,9 +17,15 @@
     <None Remove="Controls\InfoItem.xaml" />
     <None Remove="Controls\Player.xaml" />
     <None Remove="Controls\PlayItem.xaml" />
+    <None Remove="Controls\PropertyEditor\BaseControl\BoolControl.xaml" />
+    <None Remove="Controls\PropertyEditor\BaseControl\IntControl.xaml" />
+    <None Remove="Controls\PropertyEditor\BaseControl\StringControl.xaml" />
+    <None Remove="Controls\PropertyEditor\BaseControl\UnhandledControl.xaml" />
+    <None Remove="Controls\PropertyEditor\ProceduralControl.xaml" />
     <None Remove="Pages\AdvancedAnimation.xaml" />
     <None Remove="Pages\FirstPage.xaml" />
     <None Remove="Pages\PlayingTransitionPage.xaml" />
+    <None Remove="Pages\PropertyEditorPage.xaml" />
     <None Remove="Pages\TriangleSliderPage.xaml" />
   </ItemGroup>
 
@@ -57,6 +63,29 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250310001" />
     <PackageReference Include="System.Drawing.Common" Version="9.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FluentAnimatinon.PropertyEditor\FluentAnimatinon.PropertyEditor.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\PropertyEditor\BaseControl\UnhandledControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\PropertyEditor\BaseControl\BoolControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\PropertyEditor\BaseControl\StringControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\PropertyEditorPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Controls\AnimatedThumbnail.xaml">
@@ -100,6 +129,16 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\FirstPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\PropertyEditor\ProceduralControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Controls\PropertyEditor\BaseControl\IntControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

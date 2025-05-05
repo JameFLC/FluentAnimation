@@ -61,6 +61,9 @@ namespace FluentAnimation
                 case 3:
                     pageType = typeof(PlayingTransitionPage);
                     break;
+                case 4:
+                    pageType = typeof(PropertyEditorPage);
+                    break;
                 default:
                     pageType = typeof(FirstPage);
                     break;

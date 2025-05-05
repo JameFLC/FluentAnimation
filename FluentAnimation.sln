@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentAnimation", "FluentAnimation\FluentAnimation.csproj", "{66504C91-3B2D-4A95-B383-FEF60E356ACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentAnimatinon.PropertyEditor", "FluentAnimatinon.PropertyEditor\FluentAnimatinon.PropertyEditor.csproj", "{F97E4503-8B79-4C95-9EE4-2478E870F6DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,18 @@ Global
 		{66504C91-3B2D-4A95-B383-FEF60E356ACD}.Release|x86.ActiveCfg = Release|x86
 		{66504C91-3B2D-4A95-B383-FEF60E356ACD}.Release|x86.Build.0 = Release|x86
 		{66504C91-3B2D-4A95-B383-FEF60E356ACD}.Release|x86.Deploy.0 = Release|x86
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Debug|x64.Build.0 = Debug|Any CPU
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Debug|x86.Build.0 = Debug|Any CPU
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Release|ARM64.Build.0 = Release|Any CPU
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Release|x64.ActiveCfg = Release|Any CPU
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Release|x64.Build.0 = Release|Any CPU
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Release|x86.ActiveCfg = Release|Any CPU
+		{F97E4503-8B79-4C95-9EE4-2478E870F6DD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
