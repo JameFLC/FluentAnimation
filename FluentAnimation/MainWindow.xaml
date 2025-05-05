@@ -29,7 +29,7 @@
                     <SelectorBarItem x:Name="SelectorBarItemPage1" Text="FirstPage" IsSelected="True" />
                     <SelectorBarItem x:Name="SelectorBarItemPage2" Text="Advanced Animation" />
                     <SelectorBarItem x:Name="SelectorBarItemPage3" Text="TriangleSlider" />
-                    <SelectorBarItem x:Name="SelectorBarItemPage4" Text="Tunes Transition" /> <!-- Transitions d'un aspect à l'autre avec un changement de couleur de background comme dans ITunes-->
+                    <SelectorBarItem x:Name="SelectorBarItemPage4" Text="Playing Transition" /> <!-- Transitions d'un aspect à l'autre avec un changement de couleur de background comme dans Apple Podcast-->
                     <!--<SelectorBarItem x:Name="SelectorBarItemPage3" Text="Apple Inteligence" />--> <!-- Glow interne de la window commme le fait Apple Inteligence sur les rebors de l'écran dans ios 18-->
                 </SelectorBar>
             </StackPanel>

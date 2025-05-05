@@ -34,7 +34,7 @@
                                         Storyboard.TargetProperty="Color"
                                         To="{ThemeResource CardStrokeColorDefault}"
                                         Duration="0:0:0.15" />
-                            <DoubleAnimation Storyboard.TargetName="AddressTextBlock"
+                        <DoubleAnimation Storyboard.TargetName="AddressTextBlock"
                                              Storyboard.TargetProperty="Opacity"
                                              To="0"
                                              Duration="0:0:0.3">
@@ -50,7 +50,7 @@
                                 <QuinticEase/>
                             </DoubleAnimation.EasingFunction>
                         </DoubleAnimation>
-                        
+
                         <DoubleAnimation Storyboard.TargetName="JobTextBlock"
                                          Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)"
                                          To="-12" 
@@ -242,7 +242,7 @@
                 <StackPanel.RenderTransform>
                     <CompositeTransform TranslateX="0" />
                 </StackPanel.RenderTransform>
-                
+
                 <TextBlock  x:Name="FullNameTextBlock" Text="{x:Bind FullName, Mode=OneWay}" Style="{StaticResource BodyStrongTextBlockStyle}">
                     <TextBlock.RenderTransform>
                         <CompositeTransform TranslateY="12" />
@@ -275,7 +275,7 @@
                     <Button.Flyout>
                         <Flyout x:Name="BottomButtonFlyout">
                             <StackPanel Margin="-8" Spacing="8">
-                                <Rectangle Width="270" Height="140" RadiusX="8" RadiusY="8">
+                                <Rectangle Width="270" Height="140" RadiusX="4" RadiusY="4">
                                     <Rectangle.Fill>
                                         <ImageBrush x:Name="TooltipImage" Stretch="UniformToFill"/>
                                     </Rectangle.Fill>

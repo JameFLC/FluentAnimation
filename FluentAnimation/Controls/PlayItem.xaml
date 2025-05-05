@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="FluentAnimation.Controls.PlayItem"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FluentAnimation.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:media="using:CommunityToolkit.WinUI.Media"
+    xmlns:ui="using:CommunityToolkit.WinUI"
+    xmlns:uicontrols="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d">
+
+    <Grid x:Name="RootGrid"
+          HorizontalAlignment="Left" VerticalAlignment="Top"
+          Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}"
+          BorderBrush="{ThemeResource ControlStrokeColorSecondaryBrush}"
+          BorderThickness="1"
+          CornerRadius="8"
+          IsTabStop="True"
+          UseSystemFocusVisuals="True">
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="PlayIndicatorOpacity">
+                <VisualState x:Name="PlayIndicatorVisible">
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetName="PlayIndicator"
+                                         Storyboard.TargetProperty="Opacity"
+                                         To="1" 
+                                         Duration="0:0:0.15">
+                            <DoubleAnimation.EasingFunction>
+                                <QuinticEase/>
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation Storyboard.TargetName="ThumbnailOverlay"
+                                         Storyboard.TargetProperty="Opacity"
+                                         To="0.5" 
+                                         Duration="0:0:0.3">
+                            <DoubleAnimation.EasingFunction>
+                                <QuinticEase/>
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="PlayIndicatorHidden">
+                    <Storyboard>
+                        <DoubleAnimation Storyboard.TargetName="PlayIndicator"
+                                         Storyboard.TargetProperty="Opacity"
+                                         To="0" 
+                                         Duration="0:0:0.3">
+                            <DoubleAnimation.EasingFunction>
+                                <QuinticEase/>
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                        <DoubleAnimation Storyboard.TargetName="ThumbnailOverlay"
+                                         Storyboard.TargetProperty="Opacity"
+                                         To="0.0" 
+                                         Duration="0:0:0.15">
+                            <DoubleAnimation.EasingFunction>
+                                <QuinticEase/>
+                            </DoubleAnimation.EasingFunction>
+                        </DoubleAnimation>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <StackPanel Padding="8">
+            <Grid x:Name="ThumbnailImage" Height="150" Width="150" CornerRadius="4" BorderThickness="1">
+                <Grid.Background>
+                    <ImageBrush ImageSource="{x:Bind Thumbnail, Mode=OneWay}" Stretch="UniformToFill"/>
+                </Grid.Background>
+                <Grid.BorderBrush>
+                    <SolidColorBrush Color="{StaticResource ControlStrongStrokeColorDefault}" Opacity="0.25" />
+                </Grid.BorderBrush>
+                <Grid x:Name="ThumbnailOverlay" Background="{ThemeResource AccentAcrylicBackgroundFillColorBaseBrush}" Opacity="0"/>
+                <Grid x:Name="PlayIndicator" Opacity="0">
+                    <Ellipse Fill="{ThemeResource AccentFillColorDefaultBrush}" Height="50" Width="50" />
+                    <uicontrols:SwitchPresenter Value="{x:Bind IsPlaying, Mode=OneWay}" TargetType="x:Boolean" >
+                        <uicontrols:Case Value="True">
+                            <FontIcon x:Name="PauseIcon" Glyph="&#xF8AE;" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}" />
+                        </uicontrols:Case>
+                        <uicontrols:Case Value="False">
+                            <FontIcon x:Name="PlayIcon" Glyph="&#xF5B0;" Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}" />
+                        </uicontrols:Case>
+                    </uicontrols:SwitchPresenter>
+                </Grid>
+            </Grid>
+            <TextBlock x:Name="TitleBlock" Text="{x:Bind Title, Mode=OneWay}" Style="{StaticResource BodyTextBlockStyle}"  MaxWidth="{x:Bind ThumbnailImage.Width}" TextWrapping="NoWrap" Margin="0, 4, 0, 0">
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="{x:Bind Title, Mode=OneWay}"></ToolTip>
+                </ToolTipService.ToolTip>
+            </TextBlock>
+            <TextBlock x:Name="ArtistBlock" Text="{x:Bind Artist, Mode=OneWay}" Style="{StaticResource CaptionTextBlockStyle}" MaxWidth="{x:Bind ThumbnailImage.Width}" TextWrapping="NoWrap" Foreground="{ThemeResource TextFillColorTertiaryBrush}">
+                <ToolTipService.ToolTip>
+                    <ToolTip Content="{x:Bind Artist, Mode=OneWay}"></ToolTip>
+                </ToolTipService.ToolTip>
+            </TextBlock>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

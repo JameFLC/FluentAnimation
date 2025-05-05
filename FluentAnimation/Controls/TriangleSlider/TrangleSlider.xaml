@@ -20,15 +20,13 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:TriangleSlider">
-                    <Grid x:Name="ControlGrid">
+                    <Grid x:Name="ControlGrid" UseSystemFocusVisuals="True">
                         <Grid.Resources>
                             <Style x:Key="SliderThumbStyle"
                                    TargetType="Thumb">
                                 <Setter Property="UseSystemFocusVisuals" Value="True" />
                                 <Setter Property="BorderThickness" Value="1" />
-                                <Setter Property="BorderBrush"
-                                            Value="{ThemeResource SliderThumbBorderBrush}" />
-                                <!--  Uno specific (https://github.com/unoplatform/uno/issues/6457): Use solid border brush  -->
+                                <Setter Property="BorderBrush" Value="{ThemeResource SliderThumbBorderBrush}" />
                                 <Setter Property="Background" Value="{ThemeResource SliderThumbBackground}" />
                                 <Setter Property="Height" Value="{ThemeResource SliderHorizontalThumbHeight}" />
                                 <Setter Property="Width" Value="{ThemeResource SliderHorizontalThumbWidth}" />

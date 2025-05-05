@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page
+    x:Class="FluentAnimation.Pages.PlayingTransitionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:FluentAnimation.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:FluentAnimation.Pages"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="using:FluentAnimation.ViewModels"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    mc:Ignorable="d">
+
+    <Grid>
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <StackPanel>
+                <GridView
+                    HorizontalAlignment="Center"
+                    IsItemClickEnabled="True"
+                    ItemClick="GridView_ItemClick"
+                    ItemsSource="{x:Bind _viewModel.PlayList, Mode=OneWay}"
+                    SelectionMode="None">
+                    <GridView.ItemContainerStyle>
+                        <Style BasedOn="{StaticResource DefaultGridViewItemStyle}" TargetType="GridViewItem">
+                            <Setter Property="Margin" Value="4" />
+                            <Setter Property="IsTabStop" Value="False" />
+                        </Style>
+                    </GridView.ItemContainerStyle>
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="vm:PlayItemViewModel">
+                            <controls:PlayItem
+                                x:Name="Item"
+                                Title="{x:Bind Title}"
+                                Artist="{x:Bind Artist}"
+                                IsPlaying="{x:Bind IsPlaying, Mode=OneWay}"
+                                Thumbnail="{x:Bind Thumbnail}" />
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+                <Border Height="82" />
+            </StackPanel>
+        </ScrollViewer>
+        <controls:Player
+            x:Name="PagePlayer"
+            Title="Did You Just Play Some Light Jazz"
+            Artist="Q_the_Trumpet"
+            Thumbnail="https://i1.sndcdn.com/artworks-x7E8gSJPwc5XwZ3M-VzMjzQ-t200x200.jpg" />
+    </Grid>
+</Page>

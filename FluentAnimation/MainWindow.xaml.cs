@@ -38,7 +38,7 @@ namespace FluentAnimation
 
             ExtendsContentIntoTitleBar = true;
 
-            SetTitleBar(TitleBarGrab);
+            SetTitleBar(TitleBarElement);
         }
 
         private void PageSelector_SelectionChanged(SelectorBar sender, SelectorBarSelectionChangedEventArgs args)
@@ -57,6 +57,9 @@ namespace FluentAnimation
                     break;
                 case 2:
                     pageType = typeof(TriangleSliderPage);
+                    break;
+                case 3:
+                    pageType = typeof(PlayingTransitionPage);
                     break;
                 default:
                     pageType = typeof(FirstPage);
